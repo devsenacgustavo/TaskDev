@@ -16,6 +16,17 @@ export function adicionarTarefaNaLista(texto) {
   lista.appendChild(li);
 }
 
+export function renderizarTarefas(tarefas) {
+  const lista = document.querySelector("#lista-tarefas");
+  lista.innerHTML = "";
+
+  tarefas.forEach((tarefa) => {
+    const li = document.createElement("li");
+    li.textContent = tarefa.texto;
+    lista.appendChild(li);
+  });
+}
+
 //Função para exibir mensagem de validação ou sucesso para o usuário
 export function exibirMensagem(mensagem, tipo) {
   let msg = document.querySelector("#mensagem");
