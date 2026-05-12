@@ -1,7 +1,6 @@
 // dom.js
 export function obterTextoTarefa() {
-  const input = document.querySelector("#input-tarefa");
-  return input.value;
+  return document.querySelector("#input-tarefa").value;
 }
 
 export function limparInput() {
@@ -15,4 +14,18 @@ export function adicionarTarefaNaLista(texto) {
   li.textContent = texto;
 
   lista.appendChild(li);
+}
+
+//Função para exibir mensagem de validação ou sucesso para o usuário
+export function exibirMensagem(mensagem, tipo) {
+  let msg = document.querySelector("#mensagem");
+
+  if (!msg) {
+    msg = document.createElement("p");
+    msg.id = "mensagem";
+    document.body.insertBefore(msg, document.querySelector("#lista-tarefas"));
+  }
+
+  msg.textContent = mensagem;
+  msg.style.color = tipo == "error" ? "red" : "green";
 }
